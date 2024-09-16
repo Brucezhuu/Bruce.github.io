@@ -7,10 +7,10 @@ header_img: "/img/about-bg.jpg"
 ---
 
 
-我是 Bruce，本科就读于北航 计算机学院，目前在[NUS-ISS](https://www.iss.nus.edu.sg/) 读研。我对这些东西很感兴趣：
+我是 Bruce，本科就读于北航 计算机学院，目前在[NUS-ISS](https://www.iss.nus.edu.sg/) 读 Master of Technology of Software Engineering。我对这些东西很感兴趣：
 
 - Software Engineering
 - Software Achitecture
 
-[>> 查看 Bruce 的简历 <<](https://Chengtion.top)
+[>> 查看 Bruce 的简历 <<](https://www.chengtion.top/)
 
