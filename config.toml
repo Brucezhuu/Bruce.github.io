@@ -92,8 +92,7 @@ bio = "a personal website"
 [params.social]
 github = "Brucezhuu"
 email = "Bruce_529@outlook.com"
-gitlab = "johndoe"
-linkedin = "johndoe"
+linkedin = "https://www.linkedin.com/in/chengxuan-zhu-454354244/"
 rss = true
 
 [[params.friends]]
