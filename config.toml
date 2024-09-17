@@ -3,6 +3,7 @@ title = "Bruce Blogs"
 
 theme = "pupi"
 themesDir = "themes"
+contentDir = "content"
 
 copyright = ""
 paginate = 10
