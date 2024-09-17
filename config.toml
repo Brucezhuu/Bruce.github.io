@@ -1,9 +1,9 @@
 baseURL = "http://localhost:1313/"
-title = "BRUBCE BLOG"
+title = "BRUCE BLOG"
 
 theme = "pupi"
 themesDir = "themes"
-contentDir = "content"
+contentDir = "content/posts"
 
 copyright = ""
 paginate = 10
