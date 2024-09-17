@@ -3,7 +3,6 @@ title = "BRUCE BLOG"
 
 theme = "pupi"
 themesDir = "themes"
-contentDir = "content/posts"
 
 copyright = ""
 paginate = 10
