@@ -1,5 +1,5 @@
 baseURL = "http://localhost:1313/"
-title = "Hugo Pupi"
+title = "Bruce Blogs"
 
 theme = "pupi"
 themesDir = "themes"
@@ -64,8 +64,8 @@ weight = 50
 
 
 [params]
-author = "John Doe"
-description = "A personal website"
+author = "Bruce"
+description = "I'm not a prospect, I'm a working process."
 keywords = "blog, developer, personal"
 img_home = "img/home-bg.jpg"
 img_404 = "img/404-bg.jpg"
@@ -86,16 +86,12 @@ toc = true
 enable = false
 gravatarEmail = ""
 # Overwritten by your gravatar image if `gravatarEmail` is filled
-avatar = "img/home-bg.jpg"
+avatar = "img/avatar-bruce.jpg"
 bio = "a personal website"
 
 [params.social]
-twitter = "johndoe"
-facebook = "johndoe"
-zhihu = "johndoe"
-weibo = "johndoe"
-github = "johndoe"
-email = "johndoe"
+github = "Brucezhuu"
+email = "Bruce_529@outlook.com"
 gitlab = "johndoe"
 linkedin = "johndoe"
 rss = true
@@ -106,7 +102,7 @@ url = "https://gohugo.io"
 
 [params.utterances]
 enable = true
-repo = "roife/hugo-theme-pupi"
+repo = "Brucezhuu/bruce.github.io"
 issueTerm = "pathname"
 label = "Comment"
 theme = "preferred-color-scheme"
