@@ -26,6 +26,8 @@ defaults:
   run:
     shell: bash
 
+plugins: [jekyll-paginate]
+
 jobs:
   # Build job
   build:
