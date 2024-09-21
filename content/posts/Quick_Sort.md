@@ -10,7 +10,58 @@ draft = false
 - [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)
 - [AcWing 785. 快速排序](https://www.acwing.com/problem/content/787/)
 - [AcWing 786. 第k个数](https://www.acwing.com/problem/content/788/)
-### Algorithm Proof
+
+### About Quick_choose Algorithm:
+C++ already has a built-in function called `nth_element`:
+
+#### The function of std::nth_element:
+
+Functionality: std::nth_element rearranges the sequence so that the element at the nth position (referred to as the nth element) is in its correct position as if the sequence were fully sorted.
+Elements before the nth position: All elements before the nth position are less than or equal to the nth element.
+Elements after the nth position: All elements after the nth position are greater than or equal to the nth element
+
+```c++
+#include <algorithm>
+
+template< class RandomIt >
+void nth_element( RandomIt first, RandomIt nth, RandomIt last );
+
+template< class RandomIt, class Compare >
+void nth_element( RandomIt first, RandomIt nth, RandomIt last, Compare comp );
+```
+
+#### Parameter description:
+
+- first: A random access iterator pointing to the beginning of the sequence.
+- nth: A random access iterator pointing to the nth position in the sequence, i.e., the element to find.
+- last: A random access iterator pointing to the end of the sequence.
+- comp (optional): A custom comparison function that allows users to define their own sorting rules.
+
+
+#### Example:
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> vec = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+
+    // 查找第5大的元素
+    std::nth_element(vec.begin(), vec.begin() + 4, vec.end(), std::greater<int>());
+
+    std::cout << "The 5th largest element is " << vec[4] << std::endl;
+
+    return 0;
+}
+```
+#### Summary:
+
+- Applicability: std::nth_element is suitable for scenarios where you need to find the nth largest or nth smallest element in a sequence.
+- Time Complexity: Its time complexity is ( __O(n)__ ), making it more efficient than fully sorting the sequence.
+- Custom Comparator: It supports custom comparators, allowing for user-defined sorting rules (e.g., sorting from largest to smallest)
+
+### Quick Sort Algorithm Proof
 The algorithm proof uses the loop invariant method from the book “Introduction to Algorithms”.
 
 ### Quick Sort Template (Using j as the Partition)
