@@ -4,7 +4,7 @@ author = ["Bruce"]
 date = 2023-05-19
 series = ["Leetcode"]
 tags = ["Quick_sort", "Divide and Conquer"]
-draft = true
+draft = false
 +++
 ### Relevent Questions
 - [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)
