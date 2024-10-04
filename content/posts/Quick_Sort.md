@@ -93,8 +93,7 @@ After the while loop ends, ( $q[l…j] \leq x $) and ( $q[j+1…r] \geq x $).
 ($ q[l…j] \leq x $) means all elements in ( $q[l], q[l+1], \ldots, q[j-1], q[j] $) are less than or equal to ( x ).
 
 ### Proof
-Loop Invariant: ($ q[l…i] \leq x$ ) and ( $q[j…r] \geq x $).
-
+Loop Invariant:  \(q[l…i] \leq x\)  and \( q[j…r] \geq x \).
 #### Initialization: 
 Before the loop starts, ( i = l - 1 ) and ( j = r + 1 ). Thus, ( q[l…i] ) and ( q[j…r] ) are empty, so the loop invariant holds.
 #### Maintenance: 
