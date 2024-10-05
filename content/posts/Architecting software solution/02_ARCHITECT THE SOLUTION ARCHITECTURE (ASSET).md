@@ -122,7 +122,7 @@ The BASE model is more flexible and designed to handle high availability and sca
 2. Soft State:
 	- Definition: The system allows for an intermediate state where data may change over time without an immediate guarantee of consistency. Data doesn’t have to be consistent across all nodes at all times.
 	- Example: In a distributed system, updates might not be immediately propagated across all nodes, meaning one server might have outdated information, but over time, all nodes will synchronize.
-	3.	Eventual Consistency:
+3.	Eventual Consistency:
 	•	Definition: The system guarantees that, eventually, all data will become consistent, but not immediately. After some period of time (usually seconds or minutes), all replicas will converge to the same value.
 	•	Example: In an e-commerce website, if you update your shopping cart, some nodes might show an older version of the cart for a few seconds. However, after a short delay, all nodes will reflect the updated cart.
 
@@ -144,7 +144,7 @@ BASE is often used in high-availability, large-scale systems like social network
 - ACID is all about ensuring consistency and reliability in database transactions, ideal for situations where the integrity and correctness of data are paramount.
 - BASE, on the other hand, focuses on scalability and availability, tolerating temporary inconsistencies in exchange for better performance and resilience in large distributed systems.
 
-### peer to peer architecture style:
+### peer to peer architecture style (structural):
 Peer-to-peer (P2P) architecture is a decentralized network model where each participating device (peer) can act as both a client and a server.
 
 #### Key Characteristics of Peer-to-Peer Architecture:
@@ -216,37 +216,181 @@ Option 2 provides:
 
 
 
-- Data Flow Architecture: Data flows through the system sequentially. Suitable for batch processing, this style is used in ETL (Extract, Transform, Load) scenarios (slide 22).
-- Call and Return: A simple interaction where one component invokes another and waits for a response. Common in layered system architectures (slides 27-29).
-- Event-Based Architectures:
-    - Point-to-Point Event Handling: Used for real-time applications where messages are sent asynchronously from producer to consumer.
-    - Publish/Subscribe Model: The producer publishes events, and multiple subscribers consume them based on their interest (slides 32-33).
+### Data Flow Architecture (communication): 
+Data flows through the system sequentially. Suitable for batch processing, this style is used in ETL (Extract, Transform, Load) scenarios (slide 22).
+1.	Extract: Data is extracted from various sources like databases, APIs, or flat files.
+2.	Transform: Data is cleaned, normalized, and formatted according to business rules. This can involve tasks like removing duplicates, converting data types, or summarizing information.
+3.	Load: The transformed data is then loaded into a data warehouse or database for analysis.
 
+Each step in the ETL process represents a component in the data flow, and the data flows through these components sequentially or in parallel until the desired result is achieved.
+
+### Call and Return (communication): 
+A simple interaction where one component invokes another and waits for a response. Common in layered system architectures (slides 27-29).
+#### RESTful webservices (Representational State Transfer)
+- Key Characteristics:
+
+	1.	Resource-Based:
+		- REST services are built around resources, and each resource is identified by a URL. For example, in a REST API, an HTTP GET request to /customers/123 might retrieve the details of a customer with ID 123.
+	2.	Stateless:
+		- REST is stateless, meaning each request from a client to a server must contain all the information needed to process that request. The server does not store any session information between requests.
+	3.	Flexible Data Formats:
+		- REST typically uses JSON for data exchange, though it can also use XML, HTML, or other formats. JSON is lighter and easier to parse than XML, which makes REST services faster in many cases.
+	4.	Uses HTTP Methods:
+		- REST heavily relies on standard HTTP methods like:
+		- GET: Retrieve data.
+		- POST: Submit new data.
+		- PUT: Update existing data.
+		- DELETE: Remove data.
+	5.	Stateless and Scalable:
+		- REST services are easier to scale because they do not require the server to maintain the state of each user session, making them ideal for web applications with many users.
+
+- Use Cases:
+
+	- Web services and APIs used by web and mobile applications (e.g., social media platforms, cloud services).
+	- Microservices architectures that need to scale rapidly.
+	- Lightweight applications with simple data interactions.
+
+
+### Event-Based Architectures (communication):
+- Point-to-Point Event Handling: Used for real-time applications where messages are sent asynchronously from producer to consumer.
+- Publish/Subscribe Model: The producer publishes events, and multiple subscribers consume them based on their interest (slides 32-33).
+#### Discussion2:
+
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion2.png" caption="<span class=\"figure-number\">Figure 2: </span>Dissction 2" width="500px" >}}
+1.	Required Quality Attributes:
+	- Usability: The system should be easy for the general public and tourists to access and understand, especially with extensive visual graphics and illustrations.
+	- Performance: The system must deliver data quickly and efficiently, especially if real-time haze data is involved, ensuring timely information access.
+	- Scalability: The system must handle potentially large numbers of users, especially during haze events when public interest is high.
+	- Availability: The system should be highly available and reliable, as the public depends on timely access to this critical information.
+	- Security: Ensure the system is secure from unauthorized access, particularly to prevent tampering with haze data or sensitive information.
+	- Interoperability: The system should be able to integrate and work smoothly with existing haze sensors and databases that store the haze data.
+2.	Appropriate Communication Style(s):
+	- RESTful Web Services: Given the public access and likely need for scalability and flexibility, RESTful web services are appropriate. REST is stateless and easily scalable, making it a good fit for public-facing web services delivering data in formats like JSON.
+	- WebSocket (for real-time data): If the system requires real-time haze data updates, WebSocket could be used to provide live updates to users with minimal latency.
+	- API-based integration: If other systems (like mobile apps or external agencies) need to consume the data, providing an API would allow smooth integration, likely using REST as the API style for ease of use and broad compatibility.
+3. Recommended Communication Flow:
+
+	- Client (browser/mobile app) → HTTP/HTTPS REST API for haze data retrieval.
+	- Server hosts and provides RESTful services and real-time data updates using WebSockets or Pub-Sub architecture.
+	- Data visualization can be rendered on the client side using a combination of static assets delivered by CDN (content Delivery Network)and dynamic data from the API.
+
+4. Summary:
+
+	- RESTful Web Services for most interactions due to their scalability and ease of integration.
+	- WebSockets for real-time data streaming from haze sensors.
+	- Pub-Sub for event-driven notifications about important haze updates.
+	- CDN for delivering static content like graphics and visualizations.
 ## 4. Reference Architectures
 
-	•	Web Architecture: Traditional and modern client-centric web architectures are compared (slide 41).
-	•	Mobile Architecture: Discusses how to build backend services for mobile apps, including AWS-hosted architectures (slide 44).
-	•	Broker Architecture: Introduces ESB (Enterprise Service Bus) and the role of brokers in mediating interactions between components (slide 50).
-	•	SOA and Microservices: Service-Oriented Architectures (SOA) and microservices, highlighting the decoupling of functionality into independent services (slides 52-58).
-	•	Cloud and Serverless Architectures: Explore cloud models (IaaS, PaaS, SaaS) and serverless computing, focusing on how services are provided without dedicated servers (slides 61-67).
+- Web Architecture: Traditional and modern client-centric web architectures are compared (slide 41).
 
-5. Architectural Descriptions
+- Mobile Architecture: Discusses how to build backend services for mobile apps, including AWS-hosted architectures (slide 44).
 
-	•	4+1 Architectural View Model: This model uses multiple views (logical, process, physical, development) to capture different perspectives of the architecture, helping to meet the needs of various stakeholders (slide 74).
-	•	UML (Unified Modeling Language): A common language for visualizing and documenting software design (slide 73).
+- Broker Architecture: Introduces ESB (Enterprise Service Bus) and the role of brokers in mediating interactions between components (slide 50).
 
-6. Important Concepts
+- SOA and Microservices: Service-Oriented Architectures (SOA) and microservices, highlighting the decoupling of functionality into independent services (slides 52-58).
+SOA（Service-Oriented Architecture）是一种面向服务的软件架构风格，它是一种基于服务的软件设计和开发方法，将应用程序组织为一组松散耦合的、可重用的、自治的服务，这些服务通过标准化的接口进行通信，以实现各种业务流程和功能。
 
-	•	Microservices Discovery and API Gateways: How microservices communicate with each other and how API gateways manage this communication (slides 57-58).
-	•	Multitenancy and Elasticity: Relevant for cloud architectures, these concepts refer to the sharing of resources among multiple customers and adjusting resources based on demand (slide 66).
+- Cloud and Serverless Architectures: Explore cloud models (IaaS, PaaS, SaaS) and serverless computing, focusing on how services are provided without dedicated servers (slides 61-67).
+### Discussion 3:
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion3.png" caption="<span class=\"figure-number\">Figure 3: </span>Dissction 3" width="500px" >}}
 
-7. Applying What You’ve Learned
+1. Mobile Architecture: Key Decision Drivers for Mobile Application Development
 
-	•	CAP Theorem: Consider its application in real-world scenarios, such as e-commerce systems. For example, when a user adds items to a cart, should the system prioritize Consistency or Availability if network partitioning occurs (slide 18)?
-	•	Event-Based Architecture: Think about scenarios where asynchronous communication is necessary, like sending notifications or integrating with legacy systems.
-	•	Cloud Adoption: Reflect on what types of applications are suitable for the cloud and what considerations (e.g., security, latency) should guide cloud architecture decisions (slide 69).
+When determining the architecture for mobile application development, the following factors should be considered:
 
-8. Practical Steps for Using Architectural Assets
+- Platform Choice:
+	- Native vs. Cross-Platform: Deciding whether to develop natively (iOS and Android separately) or use cross-platform frameworks like Flutter or React Native.
+	- Device Compatibility: Ensuring the app works across different devices with varying screen sizes, hardware capabilities, and OS versions.
+	- User Experience (UX) and Performance:
+	- Responsive Design: The architecture should support a seamless user experience, offering smooth navigation, fast response times, and intuitive design.
+	- Offline Capabilities: The need for offline functionality should influence decisions about local storage and data synchronization.
+	- Security:
+		- Data Security: Ensure data encryption for sensitive information (e.g., using SSL/TLS).
+		- Authentication: Implement secure login methods, such as OAuth, fingerprint, or facial recognition.
+	- Scalability:
+		- As user demand grows, the app should be able to scale without performance degradation. Backend services (e.g., cloud-based services) should be designed to handle increasing load.
+		- Integration with Backend Services:
+		- API Design: The mobile app architecture must include well-structured APIs for fetching data from the backend, handling authentication, and more.
+		- Cloud Services: Integration with cloud services for data storage, user management, or even serverless features can reduce infrastructure complexity.
+	- Maintenance and Updates:
+		- Consider the ease of deploying updates (bug fixes, new features) to users. A good architecture allows for smooth and timely updates with minimal disruption to users.
+	- Battery and Performance Efficiency:
+		- The architecture should optimize for resource usage, minimizing battery consumption, and handling background processes efficiently.
+	- Push Notifications:
+		- Integrating push notifications is often a key requirement, especially for real-time interactions with users.
 
-	•	Reference Architectures: These serve as a blueprint for designing systems in specific domains (web, mobile, cloud). By using pre-existing reference architectures, you can save time and ensure the system follows best practices.
-	•	Reuse Patterns: Look for common patterns (like data flow or event-driven architectures) that can be reused across different projects to accelerate development.
+2. SOA / Microservices Architecture / Serverless Architecture: Key Factors and Considerations
+
+For an enterprise adopting SOA, Microservices, or Serverless Architecture, the following factors must be considered:
+
+- Scalability and Flexibility:
+	- Microservices and serverless architectures offer independent scaling of components, making it easier to scale parts of the application as needed without affecting other services.
+	- SOA enables scalability at the service level but may have more overhead than microservices.
+- Decoupling and Reusability:
+	- Microservices and SOA allow for modular, loosely coupled services that can be developed, deployed, and maintained independently. This also enables reusability of services across different parts of the organization.
+- Communication Overhead:
+	- In microservices and SOA, services often communicate over the network (via REST, gRPC, or messaging systems). The latency and network reliability must be taken into account.
+	- With serverless, functions typically have even shorter lifespans, so their design should focus on minimizing unnecessary communication between components.
+- Cost Considerations:
+	- Serverless architecture has a pay-per-execution pricing model, which may lead to cost savings for applications with irregular or unpredictable traffic. However, for constant high traffic, this may be more expensive compared to microservices.
+	- SOA and microservices typically involve higher upfront infrastructure costs but can be cost-efficient at scale.
+- Deployment and Management Complexity:
+	- Microservices introduce complexity in deployment, monitoring, and debugging due to the distributed nature of services. Proper orchestration tools (e.g., Kubernetes) and monitoring solutions are necessary.
+	- SOA typically follows a more structured deployment model with central management, while serverless offers simplified deployment by abstracting the infrastructure layer.
+- Security and Governance:
+	- Microservices and SOA require strong security measures, especially for inter-service communication, ensuring authentication and authorization (e.g., OAuth, JWT).
+	- Serverless requires careful management of security roles and permissions, ensuring least privilege access across Lambda functions and API Gateway resources.
+- Data Consistency:
+	- Both SOA and microservices must address data consistency challenges, particularly in distributed systems. Techniques such as eventual consistency or saga patterns are used.
+	- In serverless architectures, data persistence must be handled carefully between stateless functions, often using a mix of databases like DynamoDB or relational databases.
+
+3. Cloud Architecture: Considerations for Cloud Deployment
+
+When evaluating cloud adoption, the following considerations are important:
+
+- Types of Applications Suitable for Cloud:
+	- Web Applications: Websites or web services that need to scale according to demand. Cloud services can handle traffic spikes efficiently.
+	- Data-Intensive Applications: Applications that require massive storage and data processing (e.g., big data analytics, machine learning). Cloud services can provide scalable storage and computing power.
+	- DevOps/CI-CD Pipelines: Applications that require continuous integration and deployment workflows can benefit from cloud automation tools like AWS CodePipeline, Azure DevOps, or GitHub Actions.
+- Types of Applications Not Suitable for Cloud:
+	- Highly Latency-Sensitive Applications: Applications that require real-time processing (like high-frequency trading platforms) may not perform well in a cloud environment due to network latency.
+	- Regulated or Legacy Systems: Systems that deal with highly regulated data (such as healthcare or financial data) may face legal or compliance issues when moved to the cloud, especially if data needs to be stored on-premise for compliance reasons.
+	- Legacy Systems: Some older systems or applications that weren’t designed for distributed environments may not benefit from being moved to the cloud.
+- Key Considerations for Cloud Adoption:
+	- Cost Optimization: Cloud pricing models are complex, so it’s important to consider how much you will spend on compute, storage, and networking over time.
+	- Security and Compliance: Moving to the cloud requires a new approach to security (e.g., encryption, identity management) and adherence to compliance requirements (e.g., GDPR, HIPAA).
+	- Scalability and Elasticity: One of the key advantages of the cloud is auto-scaling. Ensure the application architecture can leverage the elastic nature of the cloud to scale based on demand.
+	- Disaster Recovery: The cloud provides easy-to-implement disaster recovery and backup solutions. Consider how cloud platforms can enhance business continuity.
+	- Vendor Lock-In: Ensure that the cloud services you choose do not create dependencies that prevent you from moving to another cloud provider or back to on-premise infrastructure if needed.
+	- Network and Latency: Assess whether the cloud provider’s network performance is sufficient for your application needs, especially if your users are globally distributed.
+## 5. Architectural Descriptions
+
+- 4+1 Architectural View Model: This model uses multiple views (logical, process, physical, development) to capture different perspectives of the architecture, helping to meet the needs of various stakeholders (slide 74).
+- UML (Unified Modeling Language): A common language for visualizing and documenting software design (slide 73).
+
+## 6. Important Concepts
+
+- Microservices Discovery and API Gateways: How microservices communicate with each other and how API gateways manage this communication (slides 57-58).
+
+The API Gateway is like a waiter in a restaurant that:
+
+- Receives orders (client requests).
+- Distributes them to the appropriate kitchens (microservices).
+- Presents everything together in one neat response (aggregated data).
+- Manages special requests (client-specific APIs).
+- Ensures access control and security (authentication).
+- Balances the load so that no single service (kitchen) gets overwhelmed.
+
+- Multitenancy and Elasticity: Relevant for cloud architectures, these concepts refer to the sharing of resources among multiple customers and adjusting resources based on demand (slide 66).
+
+## 7. Applying What You’ve Learned
+
+- CAP Theorem: Consider its application in real-world scenarios, such as e-commerce systems. For example, when a user adds items to a cart, should the system prioritize Consistency or Availability if network partitioning occurs (slide 18)?
+- Event-Based Architecture: Think about scenarios where asynchronous communication is necessary, like sending notifications or integrating with legacy systems.
+- Cloud Adoption: Reflect on what types of applications are suitable for the cloud and what considerations (e.g., security, latency) should guide cloud architecture decisions (slide 69).
+
+## 8. Practical Steps for Using Architectural Assets
+
+- Reference Architectures: These serve as a blueprint for designing systems in specific domains (web, mobile, cloud). By using pre-existing reference architectures, you can save time and ensure the system follows best practices.
+- Reuse Patterns: Look for common patterns (like data flow or event-driven architectures) that can be reused across different projects to accelerate development.
