@@ -182,7 +182,7 @@ Peer-to-peer (P2P) architecture is a decentralized network model where each part
     - Without a central authority, managing updates, security patches, and ensuring proper behavior across all peers can be more complicated.
 ### Discussion 1:
 
-
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion1.png" caption="<span class=\"figure-number\">Figure 1: </span>Dissction 1" width="500px" >}}
 
 Option 2 is better:
 
