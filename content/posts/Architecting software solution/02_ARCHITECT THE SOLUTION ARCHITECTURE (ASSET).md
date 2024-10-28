@@ -349,10 +349,20 @@ For an enterprise adopting SOA, Microservices, or Serverless Architecture, the f
 
 When evaluating cloud adoption, the following considerations are important:
 
+
+
 - Types of Applications Suitable for Cloud:
 	- Web Applications: Websites or web services that need to scale according to demand. Cloud services can handle traffic spikes efficiently.
 	- Data-Intensive Applications: Applications that require massive storage and data processing (e.g., big data analytics, machine learning). Cloud services can provide scalable storage and computing power.
 	- DevOps/CI-CD Pipelines: Applications that require continuous integration and deployment workflows can benefit from cloud automation tools like AWS CodePipeline, Azure DevOps, or GitHub Actions.
+	Big Data Analytics:
+	- Applications that process large datasets (e.g., data warehousing, data lakes, and machine learning models) are ideal for cloud deployment due to the elasticity and high-performance compute resources available in the cloud.
+	- Customer Relationship Management (CRM) and Enterprise Resource Planning (ERP):
+	Applications like CRMs and ERPs can leverage the cloud’s scalability, particularly for businesses that need to manage and analyze extensive customer or enterprise data. SaaS versions of CRMs and ERPs are widely available and optimized for cloud use.
+	- Disaster Recovery and Backup Solutions:Cloud services offer robust backup and disaster recovery solutions, providing cost-effective, reliable, and highly available options for data replication and recovery in different geographic regions.
+	- Mobile and Collaboration Apps: Applications that require frequent updates, remote accessibility, and multi-user collaboration (e.g., file sharing, team collaboration tools) are highly suitable for cloud deployment.
+	- Content Distribution and Media Streaming: Applications that need global distribution, such as media streaming and content delivery networks (CDNs), benefit from cloud’s global presence and CDN services for low-latency delivery.
+
 - Types of Applications Not Suitable for Cloud:
 	- Highly Latency-Sensitive Applications: Applications that require real-time processing (like high-frequency trading platforms) may not perform well in a cloud environment due to network latency.
 	- Regulated or Legacy Systems: Systems that deal with highly regulated data (such as healthcare or financial data) may face legal or compliance issues when moved to the cloud, especially if data needs to be stored on-premise for compliance reasons.
@@ -364,6 +374,10 @@ When evaluating cloud adoption, the following considerations are important:
 	- Disaster Recovery: The cloud provides easy-to-implement disaster recovery and backup solutions. Consider how cloud platforms can enhance business continuity.
 	- Vendor Lock-In: Ensure that the cloud services you choose do not create dependencies that prevent you from moving to another cloud provider or back to on-premise infrastructure if needed.
 	- Network and Latency: Assess whether the cloud provider’s network performance is sufficient for your application needs, especially if your users are globally distributed.
+	- Applications with Predictable, Fixed Workloads:Applications with stable and predictable resource demands may not benefit from the cloud’s scalability features, making an on-premises deployment potentially more cost-effective.
+	- High-Performance Compute (HPC) for Specialized Workloads:Certain high-performance computing applications that demand specialized hardware (e.g., GPUs, FPGAs for scientific simulations or custom-built supercomputers) may require dedicated infrastructure that can be better optimized in an on-premises setup.
+	- Applications Requiring Consistent Data Throughput and Low-Cost Storage:Applications requiring massive data throughput with high I/O demands (e.g., high-frequency transactional databases) or very low-cost storage may find cloud storage and data transfer fees prohibitive over time, making on-premises alternatives more attractive.
+
 ## 5. Architectural Descriptions
 
 - 4+1 Architectural View Model: This model uses multiple views (logical, process, physical, development) to capture different perspectives of the architecture, helping to meet the needs of various stakeholders (slide 74).
