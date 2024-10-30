@@ -338,7 +338,7 @@ public void processOrder(String productId) {
 
 ## 12. WorkShop
 
-{{< figure src="/img/in-post/Platform Engineering/02-01.png" caption="<span class=\"figure-number\">Figure 1: </span>DDD sample solution" width="1000px" >}}
+{{< figure src="/img/in-post/Platform Engineering/maid2Order-sample-solution.png" caption="<span class=\"figure-number\">Figure 1: </span>DDD sample solution" width="1000px" >}}
 {{< figure src="/img/in-post/Platform Engineering/workshop.png" caption="<span class=\"figure-number\">Figure 2: </span>workshop" width="1000px" >}}
 
 {{< figure src="/img/in-post/Platform Engineering/worshopsolution-Aggregate&DEs.png" caption="<span class=\"figure-number\">Figure 3: </span>solution" width="1000px" >}}
