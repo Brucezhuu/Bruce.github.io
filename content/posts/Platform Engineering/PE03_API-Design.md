@@ -167,8 +167,6 @@ RESTful API Design:
   - **OnceAWeek**
   - **TwiceAWeek**
 
----
-
 ### 2. **API Design - RESTful (Level 2)**
 
 #### 1. **API: Place an Order for Cleaning Service**
@@ -278,7 +276,7 @@ RESTful API Design:
 ### Alternative API Design - GraphQL
 
 #### Types Definition
-```json
+```
 type Customer {
   customerId: ID!
   name: String
@@ -321,7 +319,7 @@ type Query {
 
 ### Sample GraphQL Query
 #### Query: Retrieve a customer’s orders and subscription plans
-```json
+```
 query {
   getCustomerOrders(customerId: "customer123") {
     orderId
