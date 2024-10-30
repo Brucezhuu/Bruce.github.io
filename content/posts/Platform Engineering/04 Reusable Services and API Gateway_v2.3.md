@@ -17,20 +17,103 @@ draft = false
 ## 2. Decoupling Reusable Services
 - Bounded Contexts: Each service operates within a "bounded context," establishing a unique language and boundaries.
 - Context Mapping:
-- Shared Kernel: Shared model between two teams.
-- Partnership: High collaboration to align integrations.
-- Customer-Supplier: The upstream service provides data that the downstream service consumes.
-- Anticorruption Layer: Translates from an upstream service's language to the downstream service's language.
-- Published Language: Uses standardized data formats (e.g., JSON, XML) for easier cross-context consumption.
+    - Shared Kernel: Shared model between two teams.
+    - Partnership: High collaboration to align integrations.
+    - Customer-Supplier: The upstream service provides data that the downstream service consumes.
+    - Anticorruption Layer: Translates from an upstream service's language to the downstream service's language.
+    - Published Language: Uses standardized data formats (e.g., JSON, XML) for easier cross-context consumption.
+### 1. Shared Kernel
+
+**Shared Kernel** 指的是两个团队之间共享的一部分模型或代码库。这种模式适用于紧密耦合的业务逻辑或数据模型，需要确保一致性。通常只有少量共享内容，因为共享内容可能导致更多依赖，增加变更带来的复杂度。
+
+**例子**：
+在一个电商系统中，“订单服务”和“支付服务”可能会共享“订单”模型的部分定义。这样，当订单状态更新时，支付服务可以直接了解最新的订单信息，而不必重新定义订单的结构。在这种模式中，“订单状态”可能会是一个 Shared Kernel，供两者共同使用，以便保持一致性。
+
+---
+
+### 2. Partnership
+
+**Partnership** 是两个团队或服务之间的高度协作关系。这种关系意味着两个团队需要密切合作，以确保彼此集成的顺利进行。它通常用于两个团队之间有较强依赖的场景，双方协作一致，以确保系统的成功。
+
+**例子**：
+假设在银行系统中，“贷款服务”团队和“信用评估服务”团队采用 Partnership 模式，因为贷款审批需要依赖信用评分结果。这两个团队需要经常交流、协同开发，以确保接口一致性和逻辑对齐。这样可以在贷款流程中高效地调用信用评估数据。
+
+---
+
+### 3. Customer-Supplier
+
+**Customer-Supplier** 模式适用于上游服务（Supplier）向下游服务（Customer）提供数据或服务，双方关系类似于客户和供应商。上游服务负责提供数据，下游服务依赖这些数据进行处理。通常由下游服务来推动需求变化。
+
+**例子**：
+在一个新闻平台中，“内容管理服务”（CMS）为“推荐服务”提供文章数据。推荐服务作为 Customer，根据 CMS 的提供的内容数据生成个性化推荐。CMS 作为 Supplier，需要确保文章数据更新的及时性和完整性，但不需要了解推荐服务的具体处理流程。
+
+---
+
+### 4. Anticorruption Layer
+
+**Anticorruption Layer** 是一种隔离层，用于翻译和转换不同上下文之间的数据结构、术语或业务逻辑。这种模式用于避免直接依赖和引入上游系统的复杂性或不一致性。Anticorruption Layer 使下游服务能够独立于上游服务的实现方式。
+
+**例子**：
+假设在零售系统中，采购系统需要对接外部的供应商系统。由于供应商系统有独特的产品分类和编码方式，采购系统使用 Anticorruption Layer 将供应商的编码和结构转换为自己的内部标准，以保持一致性。这样即使供应商系统发生变化，也不会直接影响采购系统。
+
+---
+
+### 5. Published Language
+
+**Published Language** 使用标准化的数据格式和协议（如 JSON、XML、ProtoBuf 等），从而实现不同上下文之间的数据传递和集成。这种模式适用于跨服务或跨团队的数据共享，尤其是在需要与外部系统集成时。
+
+**例子**：
+在跨境电商平台中，各个供应商使用不同的系统。平台通过定义标准化的 JSON 格式接口，实现供应商信息和库存数据的统一发布，供平台中的不同模块使用。这种标准化的 Published Language 使得不同供应商能够轻松集成到平台上，同时也减少了数据传输时的复杂性和误解。
+
+### 6. Conformist
+
+**Conformist** 模式指的是下游服务完全依赖上游服务的模型和规则。下游服务（Conformist）不对上游的数据结构做任何修改，而是接受并使用上游服务的结构和格式。此模式适用于下游服务无权改变上游模型、或上游服务控制力较强的场景。
+
+**例子**：
+在一个多商家电商平台中，“商品展示服务”（展示商家的商品信息）作为下游服务完全依赖“商品管理服务”的数据结构。商品管理服务由平台统一管理，下游的商品展示服务直接采用其结构，而不做转换。因此，如果商品管理服务的模型发生改变，商品展示服务也必须适应这些变化。这里的商品展示服务就充当了 Conformist 的角色。
+
+---
+
+### 7. Open Host Service
+
+**Open Host Service** 是一种开放服务模式。它通过公开一个标准化的接口，让不同服务可以轻松访问其提供的功能和数据。通常会使用标准协议（如 REST API）和文档化的接口。这种模式适用于希望支持多个下游服务访问的情况，以减少每次集成的重复工作。
+
+**例子**：
+假设一个支付网关服务为多个电商平台（例如电子商务网站、移动应用等）提供支付处理服务。支付网关定义了一个通用的 REST API，允许电商平台通过 API 接口直接调用支付功能，无需为每个客户端创建独特接口。通过使用 Open Host Service 模式，支付网关服务为每个平台提供了一致且标准化的访问方式，方便了各个平台的集成。
+
+---
+
+### 8. Separate Ways
+
+**Separate Ways** 模式适用于不同的上下文或团队有完全不同的业务需求时。此模式意味着两个上下文可以完全独立工作，彼此没有依赖关系，不需要共享模型或业务逻辑。通常用于两个团队或服务间的业务需求差异较大，不需要数据交互的场景。
+
+**例子**：
+假设一个公司同时运营在线商店和线下实体店的会员系统。在线商店有一个“会员管理服务”，主要用于处理用户的线上活动（如积分、折扣等）；而实体店有一个完全独立的“会员积分管理系统”，管理线下会员积分规则。由于线上和线下会员系统的需求和规则完全不同，它们互不依赖，没有共享的模型，各自独立发展。这样的场景中，线上和线下的会员系统采用了 Separate Ways 模式，各自保持独立。
+
 
 ## 3. Aggregates
 - Definition: Clusters of entities within the same bounded context treated as a single unit (aggregate root).
 Principles:
 - Transactional Consistency: All elements within an aggregate must be consistent at the end of a transaction.
 - Rules of Thumb:
-    - Design small aggregates for quicker load and processing.
-    - Reference other aggregates by ID only, not by object reference.
-    - Update other aggregates using eventual consistency unless real-time updates are crucial.
+    - 1. Protect Business Invariants Inside Aggregate Boundaries
+    Rule: Business invariants—rules or constraints that must be maintained throughout an aggregate's lifecycle—should be protected within aggregate boundaries to ensure data consistency and correct business logic.
+    Example: In a task management system, when the hoursRemaining for each task within a BacklogItem (a backlog entity) reaches zero, the BacklogItem status should automatically be set to DONE. This invariant ensures that once all tasks are complete, the backlog item reflects a completed state.
+    - 2. Design Small Aggregates
+    Rule: Keep aggregates small to reduce memory usage, improve loading speed, and enhance transaction processing efficiency. Smaller aggregates are also easier to test and maintain.
+    Example: Consider a Product aggregate that contains multiple BacklogItems, Releases, and Sprints. If all related entities are included directly in Product, the aggregate would be overly large. Breaking down each BacklogItem and Release as smaller, independent aggregates minimizes memory consumption and transactional complexity.
+    3. Reference Other Aggregates by Identity Only
+    Rule: Avoid directly referencing other aggregates' objects within an aggregate. Instead, use only unique identifiers. This design simplifies data persistence and aggregate relationships while reducing unnecessary coupling.
+    Example: Aggregates like BacklogItem, Release, and Sprint should reference the Product aggregate only by ProductId rather than holding a full object reference. This avoids unnecessary memory load and maintains aggregate independence.
+    4. Use Eventual Consistency When Updating Other Aggregates
+    Rule: When an aggregate needs to synchronize data with other aggregates, use “eventual consistency” instead of immediate updates. Trigger a domain event in one aggregate, which another aggregate processes later.
+    Example: In a Sprint aggregate, when a BacklogItem is committed to a sprint, it can update the BacklogItem in one transaction and then publish a BacklogItemCommitted event. The Sprint aggregate can process this event in another transaction to maintain synchronization. This approach minimizes tight coupling between aggregates.
+    5. Avoid an Anemic Domain Model
+    Rule: Aggregates should contain business logic rather than serving as mere data access objects with only getters/setters. Embedding business logic within aggregates prevents the dispersion of rules across application layers or helper classes.
+    Example: In an order system, the Order aggregate should not only expose fields but also contain business logic like calculating prices, generating order summaries, and checking stock. This ensures that business logic is encapsulated within the aggregate.
+    6. One Repository for Persistence of One Aggregate
+    Rule: Each aggregate should have a single repository responsible for its persistence, consolidating all storage logic for the aggregate. Factory methods may be used for instantiating complex aggregates.
+    Example: In a user management system, the User aggregate, including all its entities and value objects, should be managed by a single UserRepository. This focused repository structure simplifies persistence and maintains the integrity of the aggregate.
 
 ## 4. Domain Events
 - Definition: Record of a business-significant event within a bounded context.
@@ -40,6 +123,12 @@ Principles:
 - Usage:
     - Loosely coupled systems can use domain events to propagate changes.
     - Ensure causal consistency, meaning events occur in logical order across services.
+    - For each of the context mappings of Messaging type
+        - Identify the business functions that rely on the context mapping
+        - For each of the business functions
+            - Identify the domain events that are required
+    -  For each propagation of changes from one aggregate to another
+        - Identify the domain events that is required
 
 ### Domain Events
 
@@ -86,6 +175,7 @@ Principles:
 - Orchestration:
     - Managed by a central service.
     - Simpler, with explicit control but can lead to "god services."
+    - can rely on rule engine
 - Choreography:
     - Services respond to events independently.
     - More complex, requires monitoring but offers loose coupling.
@@ -229,3 +319,26 @@ public void processOrder(String productId) {
     - Continuous Integration (CI) and Continuous Delivery (CD) are crucial for managing microservices.
 - Production Management:
     - Automated deployments, tests, and monitoring are essential for scalable and reliable microservice architectures.
+
+## 11. Summary
+- After identifying the reusable services (i.e. BCs), they are **not totally decoupled**
+  - There are still **relationships** and **interactions** between them
+
+- **Context Mappings** model the **integration** between reusable services
+
+- **Aggregates** **break the references** between reusable services and specify the **scope of transaction**
+
+- **Domain Events** provide a means for **loosely coupled integration** between reusable services
+
+- **More complex business logic** requires either **orchestration** or **choreography** of reusable services
+
+- **API Gateway** provides **server-side discovery**, **load balancing**, **client-specific APIs**, **protocol translation**, etc.
+
+- **Client SDKs** are a **convenient way for clients to consume services**
+
+## 12. WorkShop
+
+{{< figure src="/img/in-post/Platform Engineering/02-01.png" caption="<span class=\"figure-number\">Figure 1: </span>DDD sample solution" width="1000px" >}}
+{{< figure src="/img/in-post/Platform Engineering/workshop.png" caption="<span class=\"figure-number\">Figure 2: </span>workshop" width="1000px" >}}
+
+{{< figure src="/img/in-post/Platform Engineering/worshopsolution-Aggregate&DEs.png" caption="<span class=\"figure-number\">Figure 3: </span>solution" width="1000px" >}}

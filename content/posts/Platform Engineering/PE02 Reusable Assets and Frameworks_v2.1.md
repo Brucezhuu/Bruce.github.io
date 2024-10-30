@@ -15,7 +15,7 @@ Types of Reusable Assets:
 - Services: Components that provide specific, well-defined functionalities (e.g., user authentication, data storage).
 - Frameworks: Provide a structured environment for building applications, offering partial implementations of common functions.
 - Shared Libraries: Collections of code used across different services and applications, typically containing helper functions, data structures, or protocols.
-{{< figure src="/img/in-post/Platform Engineering/02-01.png" caption="<span class=\"figure-number\">Figure 1: </span>Other resusable assets" width="600px" >}}
+{{< figure src="/img/in-post/Platform Engineering/02-01.png" caption="<span class=\"figure-number\">Figure 1: </span>Other resusable assets" width="1000px" >}}
 
 ## 2. Characteristics of Reusable Services
 Reusable services must be maintainable, extensible, and resilient to support long-term usage across platforms:
