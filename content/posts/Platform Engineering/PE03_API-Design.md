@@ -278,7 +278,7 @@ RESTful API Design:
 ### Alternative API Design - GraphQL
 
 #### Types Definition
-```c++
+```json
 type Customer {
   customerId: ID!
   name: String
@@ -321,7 +321,7 @@ type Query {
 
 ### Sample GraphQL Query
 #### Query: Retrieve a customer’s orders and subscription plans
-```graphql
+```json
 query {
   getCustomerOrders(customerId: "customer123") {
     orderId
