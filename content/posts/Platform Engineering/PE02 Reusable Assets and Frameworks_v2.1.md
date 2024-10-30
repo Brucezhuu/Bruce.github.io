@@ -2,8 +2,8 @@
 title = "PE_02: PE02 Reusable Assets and Frameworks_v2.1"
 author = ["Bruce"]
 date = 2024-10-14
-series = ["Architecting software solution"]
-tags = ["Architecting software solution", "SWE5001"]
+series = ["Platform Engineering"]
+tags = ["Platform Engineering", "SWE5001"]
 draft = false
 +++
 
