@@ -1,5 +1,5 @@
 +++
-title = "07. Perform Capacity Planning for Architecture v3.1"
+title = "Archss_07. Perform Capacity Planning for Architecture v3.1"
 author = ["Bruce"]
 date = 2024-10-04
 series = ["Architecting software solution"]

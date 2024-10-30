@@ -1,5 +1,5 @@
 +++
-title = "08.Ensure Maintainable Architecture v3.1"
+title = "Archss_08.Ensure Maintainable Architecture v3.1"
 author = ["Bruce"]
 date = 2024-10-14
 series = ["Architecting software solution"]

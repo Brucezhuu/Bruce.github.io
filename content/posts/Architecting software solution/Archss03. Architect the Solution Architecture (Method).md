@@ -1,5 +1,5 @@
 +++
-title = "03: Architect the solution architecture (Method)"
+title = "Archss_03: Architect the solution architecture (Method)"
 author = ["Bruce"]
 date = 2024-10-04
 series = ["Architecting software solution"]

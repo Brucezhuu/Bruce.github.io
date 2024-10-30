@@ -1,5 +1,5 @@
 +++
-title = "01: Introduction to Platform"
+title = "PE_01: Introduction to Platform"
 author = ["Bruce"]
 date = 2024-10-14
 series = ["Architecting software solution"]
