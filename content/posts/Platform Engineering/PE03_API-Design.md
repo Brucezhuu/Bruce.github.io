@@ -25,7 +25,7 @@ draft = false
 - Uniform Interface: Resources are identified by URLs, with operations defined by HTTP methods.
 - Layered System: The API’s design should allow for intermediate layers (e.g., caching).
 - Caching: Improves performance and reduces server load.
-HATEOAS (Hypermedia as the Engine of Application State): Clients navigate the API using links embedded in responses.
+- HATEOAS (Hypermedia as the Engine of Application State): Clients navigate the API using links embedded in responses.
 ## 4. API Design Best Practices
 - Resource Naming:
 
@@ -151,3 +151,231 @@ Header Versioning: Use custom headers for versioning (Accept-Version: v1).
 
 - API编排更关注流程控制和执行顺序，确保依赖关系。适用于需要按顺序调用的复杂流程。
 - API聚合通常指将多个API的结果组合成一个结果，适用于需要合并数据的场景。
+
+## 14. API Design Workshop
+RESTful API Design:
+
+### 1. **Domain Analysis Based on Requirements**
+- **Entities**:
+  - **Customer**: The user ordering the service.
+  - **CleaningAgency**: The provider offering the cleaning services.
+  - **Order**: Represents each cleaning service order made by a customer.
+  - **SubscriptionPlan**: Represents the subscription plan chosen by the customer, if applicable.
+
+- **Subscription Plans**:
+  - **OnceAFortnight**
+  - **OnceAWeek**
+  - **TwiceAWeek**
+
+---
+
+### 2. **API Design - RESTful (Level 2)**
+
+#### 1. **API: Place an Order for Cleaning Service**
+
+- **URI**: `/api/v1/orders`
+- **HTTP Verb**: `POST`
+- **Description**: Allows the customer to place an order for cleaning service from a specific agency, either as a one-time order or under a subscription plan.
+- **Parameters**:
+  - `customerId` (String, required): ID of the customer placing the order.
+  - `agencyId` (String, required): ID of the cleaning agency selected.
+  - `planType` (String, optional): Subscription plan type (`OnceAFortnight`, `OnceAWeek`, `TwiceAWeek`).
+  - `date` (Date, required): Date of the cleaning service.
+  - `time` (String, required): Time of the service.
+- **Request Body Example**:
+  ```json
+  {
+    "customerId": "customer123",
+    "agencyId": "agency456",
+    "planType": "OnceAWeek",
+    "date": "2024-10-15",
+    "time": "10:00"
+  }
+  ```
+- **ResResponse**：
+- **200 OK** for successful retrieval.
+- **201 Created** for successful creation.
+- **204 No Content** for successful deletion.
+- **400 Bad Request** for invalid input.
+- **404 Not Found** for non-existent user.
+- response body example: 
+```json
+{
+  "orderId": "order789",
+  "status": "Confirmed",
+  "customerId": "customer123",
+  "agencyId": "agency456",
+  "planType": "OnceAWeek",
+  "date": "2024-10-15",
+  "time": "10:00"
+}
+```
+
+### 2. API: View Subscription Plans
+- **URI**: `/api/v1/plans`
+- **HTTP Verb**: `GET`
+- **Description**: Fetch available subscription plans and their details (e.g., frequency and pricing).
+
+#### Response:
+- **200 OK** on success
+
+#### Response Body Example:
+```json
+[
+  {
+    "planType": "OnceAFortnight",
+    "description": "Cleaning service once every two weeks",
+    "rate": "100 USD"
+  },
+  {
+    "planType": "OnceAWeek",
+    "description": "Cleaning service once a week",
+    "rate": "180 USD"
+  },
+  {
+    "planType": "TwiceAWeek",
+    "description": "Cleaning service twice a week",
+    "rate": "320 USD"
+  }
+]
+```
+
+### 3. API: Retrieve Customer Orders
+- **URI**: `/api/v1/customers/{customerId}/orders`
+- **HTTP Verb**: `GET`
+- **Description**: Retrieves all cleaning service orders for a specific customer, including both one-time and subscription-based orders.
+
+#### Parameters:
+- `customerId` (String, required): ID of the customer whose orders are being fetched.
+
+#### Response:
+- **200 OK** on success
+
+#### Response Body Example:
+```json
+[
+  {
+    "orderId": "order789",
+    "agencyId": "agency456",
+    "date": "2024-10-15",
+    "time": "10:00",
+    "planType": "OnceAWeek",
+    "status": "Confirmed"
+  },
+  {
+    "orderId": "order1011",
+    "agencyId": "agency456",
+    "date": "2024-10-08",
+    "time": "14:00",
+    "planType": "OnceAWeek",
+    "status": "Completed"
+  }
+]
+- 404 Not Found if the customer or orders are not found.
+
+
+### Alternative API Design - GraphQL
+
+#### Types Definition
+```c++
+type Customer {
+  customerId: ID!
+  name: String
+  orders: [Order]
+}
+
+type Order {
+  orderId: ID!
+  customer: Customer!
+  agency: Agency!
+  date: String!
+  time: String!
+  planType: PlanType
+  status: String
+}
+
+type Agency {
+  agencyId: ID!
+  name: String
+  orders: [Order]
+}
+
+enum PlanType {
+  OnceAFortnight
+  OnceAWeek
+  TwiceAWeek
+}
+
+type SubscriptionPlan {
+  planType: PlanType!
+  description: String!
+  rate: Float!
+}
+
+type Query {
+  getCustomerOrders(customerId: ID!): [Order]
+  getAvailablePlans: [SubscriptionPlan]
+}
+```
+
+### Sample GraphQL Query
+#### Query: Retrieve a customer’s orders and subscription plans
+```graphql
+query {
+  getCustomerOrders(customerId: "customer123") {
+    orderId
+    date
+    time
+    planType
+    status
+    agency {
+      agencyId
+      name
+    }
+  }
+
+  getAvailablePlans {
+    planType
+    description
+    rate
+  }
+}
+```
+#### Sample Response:
+```json
+Copy code
+{
+  "data": {
+    "getCustomerOrders": [
+      {
+        "orderId": "order789",
+        "date": "2024-10-15",
+        "time": "10:00",
+        "planType": "OnceAWeek",
+        "status": "Confirmed",
+        "agency": {
+          "agencyId": "agency456",
+          "name": "CleanHouse Ltd."
+        }
+      }
+    ],
+    "getAvailablePlans": [
+      {
+        "planType": "OnceAFortnight",
+        "description": "Cleaning service once every two weeks",
+        "rate": 100
+      },
+      {
+        "planType": "OnceAWeek",
+        "description": "Cleaning service once a week",
+        "rate": 180
+      },
+      {
+        "planType": "TwiceAWeek",
+        "description": "Cleaning service twice a week",
+        "rate": 320
+      }
+    ]
+  }
+}
+```
