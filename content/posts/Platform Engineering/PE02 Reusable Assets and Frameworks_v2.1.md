@@ -41,7 +41,7 @@ Reusable services must be maintainable, extensible, and resilient to support lon
     - **Bounded Contexts:** Define boundaries around domain areas, such as User Management or Payment Processing, to ensure each service operates within a specific context.
     - **Ubiquitous Language:** Standardize terminology across the team and codebase for clarity and consistency.
     - **Entity Segmentation:** Identify and separate entities based on business requirements to keep services manageable and focused.
-{{< figure src="/img/in-post/Platform Engineering/02-02.png" caption="<span class=\"figure-number\">Figure 2: </span>Two levels of design conducted in DDD" width="600px" >}}
+{{< figure src="/img/in-post/Platform Engineering/02-02.png" caption="<span class=\"figure-number\">Figure 2: </span>Two levels of design conducted in DDD" width="800px" >}}
 - All the entities in a BC are functionally cohesive to the BC
 - Non-cohesive entities are pushed out to other BCs
 - The entities in a BC are specified by one UL (Different languages are used in different BCs)
@@ -84,7 +84,7 @@ Tactical Design addresses fine-grained, detailed design issues with the goal of 
     - DDD emphasizes domain objects and focuses on aligning design with domain logic.DDD强调领域对象和与业务逻辑的对齐，即更关注业务语境和业务需求的细节，确保系统的设计能够反映业务的实际需求。
     - OOAD centers around functional requirements and the relationships between them, catering to a broader architectural style.OOAD则更关注功能需求和类之间的关系，是一种更广泛的设计方法。它侧重于功能和类的结构设计，更适合一些没有复杂业务逻辑的系统设计。
 ### workshop：maid2Order (ppt 29 ~ 32)
-{{< figure src="/img/in-post/Platform Engineering/maid2Order-sample-solution.png" caption="<span class=\"figure-number\">Figure 4: </span>Sample solution" width="600px" >}}
+{{< figure src="/img/in-post/Platform Engineering/maid2Order-sample-solution.png" caption="<span class=\"figure-number\">Figure 4: </span>Sample solution" width="900px" >}}
 ## 4. Frameworks: Characteristics and Benefits
 A framework is a partially implemented structure that can be extended to develop applications with specific domain logic, such as user interfaces or data access layers.
 
