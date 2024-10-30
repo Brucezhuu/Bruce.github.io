@@ -271,6 +271,7 @@ RESTful API Design:
     "status": "Completed"
   }
 ]
+```
 - 404 Not Found if the customer or orders are not found.
 
 
