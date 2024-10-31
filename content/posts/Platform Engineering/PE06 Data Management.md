@@ -1,5 +1,5 @@
 +++
-title = "06 Data management"
+title = "PE06 Data management"
 author = ["Bruce"]
 date = 2024-10-14
 series = ["Platform Engineering"]
@@ -32,7 +32,7 @@ draft = false
 - **Consistency**: All reads receive the latest write.
 - **Availability**: Every request receives a response, even if outdated.
 - **Partition Tolerance**: System continues to operate despite network failures.
-- **Trade-Off**: For distributed systems, you must choose between Consistency and Availability in the presence of a network partition.
+- **Trade-Off**: For distributed systems, you must choose between Consistency and Availability in the presence of a network partition. 在分布式系统中，数据和服务通常分布在多个节点或服务器上，这些节点通过网络进行通信。当网络连接出现故障时，可能会导致某些节点之间无法通信，这种情况被称为网络分区（Network Partition）。
 
 ## 5. RDBMS (Relational Database Management Systems)
 - **Strengths**: Structured data, strong ACID compliance, flexible querying with SQL.
@@ -46,14 +46,17 @@ draft = false
 - **Sharding**: Splits data across multiple nodes to improve write scalability.
 - **Caching**: Uses in-memory data storage for faster access but risks data loss if cache isn’t flushed to the disk.
 
+#### Common Query Resiponsibility Segregation (CQRS)
+{{< figure src="/img/in-post/Platform Engineering/CQRS.png" caption="<span class=\"figure-number\">Figure 1: </span>CQRS" width="1000px" >}}
 ## 7. NoSQL Databases
 **Purpose**: Addresses limitations of RDBMS in handling large-scale, flexible, and schema-less data.
 
 **Types of NoSQL Databases**:
-- **Key-Value Stores**: Simple and fast, ideal for caching and session management (e.g., Redis).
-- **Document Stores**: Stores data as documents (usually JSON); great for semi-structured data with flexible schema (e.g., MongoDB).
+- **Key-Value Stores**: Simple and fast, ideal for caching and session management (e.g., Redis, which is a CP system).
+- **Document Stores**: Stores data as documents (usually JSON); great for semi-structured data with flexible schema (e.g., MongoDB, which is a CP system).
 - **Column Family Stores**: Optimized for high-write loads with sparse data (e.g., Cassandra, HBase).
 - **Graph Databases**: Designed for relationship-based queries, like social networks and logistics (e.g., Neo4j).
+- **Search Engine**
 
 ## 8. Key-Value Stores
 - **Usage**: Extremely fast key-based lookups, commonly used in shopping carts and cache layers.
@@ -74,7 +77,7 @@ draft = false
 - **Purpose**: Provides advanced querying capabilities such as ranking, filtering, and aggregations.
 - **Usage**: Commonly used in applications needing robust search functions, like StackOverflow and GitHub.
 - **Limitations**: Slow for insertions due to tokenization; not suitable as a primary datastore.
-- **Example**: Elasticsearch, which supports a wide range of query types in JSON format.
+- **Example**: Elasticsearch(a AP System), which supports a wide range of query types in JSON format.
 
 ## 12. Graph Databases
 - **Purpose**: Optimized for data with complex relationships (e.g., social networks, logistics).

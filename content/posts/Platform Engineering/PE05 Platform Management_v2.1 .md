@@ -1,5 +1,5 @@
 +++
-title = "05 Platform management"
+title = "PE05 Platform management"
 author = ["Bruce"]
 date = 2024-10-14
 series = ["Platform Engineering"]
