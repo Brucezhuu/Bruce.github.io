@@ -471,6 +471,10 @@ Cloud Native 是专为云环境设计和构建的应用架构。云原生应用�
   - Users access applications without managing infrastructure or application resources.
 
 {{< figure src="/img/in-post/Cloud Native Solution Design/Cloud Service Models.png" caption="<span class=\"figure-number\">Figure 6: </span>Cloud Service Models" width="1000px" >}}
+
+{{< figure src="/img/in-post/Cloud Native Solution Design/Cloud Computing Service Model.png" caption="<span class=\"figure-number\">Figure 7: </span>Cloud Computing Service Model" width="1000px" >}}
+
+{{< figure src="/img/in-post/Cloud Native Solution Design/cloud native service model.png" caption="<span class=\"figure-number\">Figure 8: </span>cloud native service model" width="1000px" >}}
 ## 4. Cloud Deployment Models
 
 - **Public Cloud**:
@@ -488,7 +492,7 @@ Cloud Native 是专为云环境设计和构建的应用架构。云原生应用�
 - **Virtual Private Cloud (VPC)**:
   - A private cloud within a public cloud with isolated resources.
   - Offers scalability and security similar to private cloud.
-{{< figure src="/img/in-post/Cloud Native Solution Design/VPC.png" caption="<span class=\"figure-number\">Figure 7: </span>VPC" width="1000px" >}}
+{{< figure src="/img/in-post/Cloud Native Solution Design/VPC.png" caption="<span class=\"figure-number\">Figure 9: </span>VPC" width="1000px" >}}
 - **Proprietary Cloud**:
   - A custom-built cloud solution that includes hardware and software.
   - Used for on-premise deployment by large enterprises.
