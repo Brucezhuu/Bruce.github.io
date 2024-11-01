@@ -1,4 +1,11 @@
-
++++
+title = "CloudNativeSolution 03: Cloud Adoption and Migrition"
+author = ["Bruce"]
+date = 2024-10-24
+series = ["Cloud Native Solution"]
+tags = ["Cloud Native Solution", "SWE5001"]
+draft = false
++++
 # Cloud Adoption and Migration Overview
 
 This document outlines the steps, strategies, and key considerations for cloud adoption, migration, and modernization to help organizations leverage cloud services for scalability, cost-efficiency, and innovation.
