@@ -220,3 +220,88 @@ This document provides a comprehensive overview of the DevOps process in cloud d
 - **Automation & Tooling**: Essential for CI/CD, monitoring, IaC, and deployments.
 - **Continuous Monitoring**: Key for maintaining system health and resilience.
 - **Cloud Integration**: Cloud-native DevOps practices leverage scalable, cost-effective resources.
+
+# Diagram in class
+
+{{< figure src="/img/in-post/Cloud Native Solution Design/Day3-1.png" caption="<span class=\"figure-number\">Figure 3: </span>DevOps & gitOps" width="1000px" >}}
+# Key Concepts in DevOps and GitOps Workflows within a Cloud Native Solution
+
+This overview focuses on automation, infrastructure management, and the deployment process in a cloud-native context, comparing traditional DevOps with GitOps workflows.
+
+## Key Elements Explained
+
+### 1. Traditional DevOps Workflow
+
+#### Steps in Traditional DevOps:
+- **Code → Repo → Build → Test → Deploy**: Developers push code to a repository, then build, test, and deploy using automated tools.
+
+#### Tools Used:
+- **Jenkins**: Automates building, testing, and deploying code.
+- **Ansible**: Configuration management tool for automating deployment across environments.
+
+#### Deployment:
+- Typically pushes changes to virtual machines (VMs) or other specific infrastructure based on vendor requirements.
+
+#### Process:
+- Traditional DevOps often follows a **push-based approach**, where code and configuration changes are actively pushed to servers or VMs.
+
+### 2. GitOps Workflow (Pull-Based)
+
+#### GitOps:
+- Uses a **pull-based approach** where an agent monitors the repository and automatically pulls changes when a new state is detected.
+
+#### Key Components of GitOps:
+- **Agent in Charge**: Monitors the repository and triggers actions when code, configuration files, or environment variables are updated.
+
+#### Automated Tools:
+- **GitHub**: Hosts repositories for version control.
+- **Argo and Flux**: GitOps tools that manage continuous deployment to Kubernetes environments by monitoring Git repositories.
+
+#### Advantages:
+- GitOps enables better **visibility**, **repeatability**, and **security** by using the Git repository as the **single source of truth**.
+
+### 3. Automation and Properties (Key-Value Pairs)
+
+#### Automated Configuration:
+- The workflow automates updates to code, configuration files, and environment variables.
+
+#### Properties (Key-Value Pairs):
+- **Codes**: Source code and related scripts.
+- **Config Files**: Configuration settings for deployment and runtime environments.
+- **Context**:
+  - **Secrets**: Sensitive information such as passwords and API keys.
+  - **Env Var (Environment Variables)**: Dynamic variables passed to applications for different runtime environments.
+
+### 4. Cluster and Client-Level Instructions for Kubernetes
+
+#### Local Installation:
+- **Minikube**: Allows developers to run a single-node Kubernetes cluster locally for testing and development.
+
+#### Client-Level Instructions:
+- **kubectl**: Command-line tool for interacting with Kubernetes clusters.
+- **Helm, Kind**: Tools for managing Kubernetes applications and clusters.
+
+#### Cloud Providers for Kubernetes:
+- **AWS EKS**: Amazon Elastic Kubernetes Service, a managed Kubernetes service by AWS.
+- **Elastic Kubernetes Service**: General term for managed Kubernetes services.
+- **GKE (Google Kubernetes Engine)**: Managed Kubernetes service by Google Cloud.
+
+### 5. Sandbox Environments for Kubernetes
+
+#### Sandbox Environments:
+- Provide isolated environments to experiment with Kubernetes without affecting production systems.
+
+#### Examples:
+- **Play with Kubernetes (playwithk8s)**: An online tool to explore Kubernetes concepts in a sandbox.
+- **Killer Koda**: An interactive learning environment for Kubernetes concepts and practice.
+
+## Summary
+
+This diagram provides an overview of the development, testing, and deployment workflow in traditional DevOps versus GitOps, highlighting:
+
+- **Push-Based DevOps**: Code changes are actively pushed to the environment.
+- **Pull-Based GitOps**: An agent monitors repositories and pulls changes to keep environments in sync with the repository.
+- **Automation**: Uses key-value pairs for managing code, configuration, and secrets securely.
+- **Kubernetes Management**: Tools and environments for managing clusters locally and on cloud providers.
+
+This setup allows for scalable, automated, and secure management of cloud-native applications, leveraging best practices of DevOps and GitOps within a Kubernetes ecosystem.
