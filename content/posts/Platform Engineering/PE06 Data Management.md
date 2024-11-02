@@ -43,7 +43,7 @@ draft = false
 
 ## 6. Scaling Databases
 - **Read Replication**: Creates read-only copies for scalability but introduces replication lag.
-- **Sharding**: Splits data across multiple nodes to improve write scalability.
+- **Sharding**: Splits data across multiple nodes to **improve write scalability.**
 - **Caching**: Uses in-memory data storage for faster access but risks data loss if cache isn’t flushed to the disk.
 
 #### Common Query Resiponsibility Segregation (CQRS)
