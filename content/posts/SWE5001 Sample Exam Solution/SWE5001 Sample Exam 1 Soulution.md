@@ -7,6 +7,76 @@ tags = ["Platform Engineering", "Architecting software solution", "Cloud Native 
 draft = false
 +++
 
+
+# SWE5001 Sample Exam 1 Solution
+
+## Table of Contents
+- [Section A, Question 1(a)](#section-a-question-1a)
+  - [Performance Testing Design and Reliability](#performance-testing-design-and-reliability)
+  - [Event Transmission Mechanism Selection and Analysis](#event-transmission-mechanism-selection-and-analysis)
+  - [Summary](#summary)
+
+- [Section A, Question 1(b)](#section-a-question-1b)
+  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas)
+  - [Issue 1: NotificationManager Service’s Reusability](#issue-1-notificationmanager-services-reusability)
+  - [Issue 2: Promptness of Results Viewing for Observers](#issue-2-promptness-of-results-viewing-for-observers)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach)
+
+- [Section A, Question 1(c)](#section-a-question-1c)
+  - [Question Breakdown and Key Focus Points](#question-breakdown-and-key-focus-points)
+  - [Determining Conformance with RMM Level 2](#determining-conformance-with-rmm-level-2)
+  - [Proposing a Better API Versioning Strategy](#proposing-a-better-api-versioning-strategy)
+  - [Optimizing the API Interface Design](#optimizing-the-api-interface-design)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-1)
+
+- [Section A, Question 1(d)](#section-a-question-1d)
+  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas)
+  - [Answer Explanation: Why Performance and Security Are Prioritized](#answer-explanation-why-performance-and-security-are-prioritized)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-2)
+  - [Additional Perspective](#additional-perspective)
+
+- [Section A, Question 1(e)](#section-a-question-1e)
+  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas)
+  - [Answer Explanation: Effectiveness of Tracking Daily Voter Numbers](#answer-explanation-effectiveness-of-tracking-daily-voter-numbers)
+  - [Answer Explanation: Monitoring Potential Side Effects](#answer-explanation-monitoring-potential-side-effects)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-3)
+  - [Summary](#summary-1)
+
+- [Section B, Question 2(a)](#section-b-question-2a)
+  - [Sub-Question (i): Reference Architecture and Essential Components](#sub-question-i-reference-architecture-and-essential-components)
+  - [Sub-Question (ii): Internal Communication Between Services](#sub-question-ii-internal-communication-between-services)
+  - [Sub-Question (iii): State Management for Stateful Services](#sub-question-iii-state-management-for-stateful-services)
+  - [Sub-Question (iv): Deployment Plan Using Kubernetes](#sub-question-iv-deployment-plan-using-kubernetes)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-4)
+
+- [Section B, Question 2(b)](#section-b-question-2b)
+  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas-1)
+  - [Answer Explanation: PWA vs. Native App](#answer-explanation-pwa-vs-native-app)
+  - [Answer Explanation: Impact on Back-End Service Design](#answer-explanation-impact-on-back-end-service-design)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-5)
+  - [Summary](#summary-2)
+
+- [Section C, Question 3(c)](#section-c-question-3c)
+  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas-2)
+  - [Answer Explanation: Identifying Undesirable Architectural Decisions](#answer-explanation-identifying-undesirable-architectural-decisions)
+  - [Answer Explanation: Proposing Corrective Actions](#answer-explanation-proposing-corrective-actions)
+  - [Justification and Trade-Off Analysis](#justification-and-trade-off-analysis)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-6)
+  - [Summary](#summary-3)
+
+- [Section C, Question 3(d)](#section-c-question-3d)
+  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas-3)
+  - [Answer Explanation: Sharding as a Scaling Strategy](#answer-explanation-sharding-as-a-scaling-strategy)
+  - [Answer Explanation: Software and Infrastructure Adjustments](#answer-explanation-software-and-infrastructure-adjustments)
+  - [Monitoring Potential Side Effects](#monitoring-potential-side-effects)
+  - [Key Takeaways for Approach](#key-takeaways-for-approach-7)
+  - [Summary](#summary-4)
+
+- [PWA 和 Native Client 的区别](#pwa-和-native-client-的区别)
+
+---
+
+
 Section A, Question 1(a) 主要是考察考生在设计和评估系统性能测试和事件传递机制时的思路与分析能力。这道题从两个子问题切入，具体考点如下：
 
 1. 性能测试的设计与可靠性（Question 1(a)(i））
@@ -883,4 +953,21 @@ API 一致性指的是在设计后端 API 时，尽量保持 API 的接口风格
 什么是服务复用？
 
 服务复用指的是在后端设计 API 时，尽量设计出通用性强的服务，以便多个客户端或业务场景可以重复使用，而不需要为每个新场景重新开发新的服务。例如，提供一个通用的 `getUserDetails` API，可以被不同的前端（移动端、桌面端、Web端）调用，而不需要为每个前端单独设计获取用户信息的接口。
+
+
+---
+
+# PWA 和 Native Client 的区别
+
+| 特性              | PWA                                      | Native Client                                      |
+|-------------------|------------------------------------------|----------------------------------------------------|
+| **开发技术**       | Web技术（HTML, CSS, JavaScript）         | 平台特定语言（如Swift、Kotlin）                     |
+| **分发方式**       | 直接通过网址访问，或通过浏览器添加到主屏幕 | 必须通过应用商店下载和安装                          |
+| **跨平台支持**     | 一次开发，多平台运行                      | 需为每个平台单独开发                                |
+| **访问硬件功能**   | 受限，部分浏览器支持离线、推送通知、位置服务等 | 完全访问设备硬件（如相机、传感器、蓝牙等）          |
+| **安装与更新**     | 无需安装，自动更新                       | 需用户下载安装和手动更新                            |
+| **性能表现**       | 性能较好，但不如原生应用                 | 性能最佳，直接访问系统资源                          |
+| **离线支持**       | 可部分离线（依赖Service Worker）        | 完全离线运行，数据和功能均可离线可用               |
+| **用户体验**       | 类似原生应用，界面体验接近，但不完全一致 | 完全原生，体验流畅一致                              |
+| **浏览器支持**     | 依赖于不同浏览器支持程度                 | 与操作系统直接集成，用户无浏览器依赖                |
 
