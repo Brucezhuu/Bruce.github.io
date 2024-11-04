@@ -147,6 +147,7 @@ focuses on identifying design issues within a domain model and proposing improve
    - **Analyzing Trade-offs**: Balancing the benefits of modularity and separation of concerns with potential downsides, such as added complexity or larger service boundaries.
 
 In this question, candidates must navigate architectural principles like service modularity, cohesion, and latency, then evaluate solutions with awareness of possible consequences. This comprehensive approach ensures that the answer is both technically sound and practical.
+
 ---
 
 Section A, Question 1(b) 主要考察考生识别领域模型中的设计问题并提出改进方案，同时考虑潜在的权衡。这道题目评估了考生对领域驱动设计、服务边界和模块化的理解。以下是答案有效的原因以及思考的切入点分析。
