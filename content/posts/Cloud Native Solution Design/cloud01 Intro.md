@@ -245,7 +245,7 @@ This architecture represents a Cloud-Enabled setup under a "Lift, Shape & Shift"
 
 This cloud-enabled architecture allows traditional applications to take advantage of cloud scalability, reliability, and managed services with minimal refactoring, making it a suitable approach for companies transitioning gradually to a cloud-native environment.
 
-{{< figure src="/img/in-post/Cloud Native Solution Design/Cloud Native1.png" caption="<span class=\"figure-number\">Figure 4: </span>Cloud Native 1" width="1000px" >}}
+{{< figure src="/img/in-post/Cloud Native Solution Design/Cloud Native 1.png" caption="<span class=\"figure-number\">Figure 4: </span>Cloud Native 1" width="1000px" >}}
 {{< figure src="/img/in-post/Cloud Native Solution Design/Cloud Native.png" caption="<span class=\"figure-number\">Figure 5: </span>Cloud Native 2" width="1000px" >}}
 
 # Cloud-Native Architecture
