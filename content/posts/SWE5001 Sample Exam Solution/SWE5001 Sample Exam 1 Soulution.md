@@ -10,74 +10,11 @@ draft = false
 
 # SWE5001 Sample Exam 1 Solution
 
-## Table of Contents
-- [Section A, Question 1(a)](#section-a-question-1a)
-  - [Performance Testing Design and Reliability](#performance-testing-design-and-reliability)
-  - [Event Transmission Mechanism Selection and Analysis](#event-transmission-mechanism-selection-and-analysis)
-  - [Summary](#summary)
-
-- [Section A, Question 1(b)](#section-a-question-1b)
-  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas)
-  - [Issue 1: NotificationManager Service’s Reusability](#issue-1-notificationmanager-services-reusability)
-  - [Issue 2: Promptness of Results Viewing for Observers](#issue-2-promptness-of-results-viewing-for-observers)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach)
-
-- [Section A, Question 1(c)](#section-a-question-1c)
-  - [Question Breakdown and Key Focus Points](#question-breakdown-and-key-focus-points)
-  - [Determining Conformance with RMM Level 2](#determining-conformance-with-rmm-level-2)
-  - [Proposing a Better API Versioning Strategy](#proposing-a-better-api-versioning-strategy)
-  - [Optimizing the API Interface Design](#optimizing-the-api-interface-design)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-1)
-
-- [Section A, Question 1(d)](#section-a-question-1d)
-  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas)
-  - [Answer Explanation: Why Performance and Security Are Prioritized](#answer-explanation-why-performance-and-security-are-prioritized)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-2)
-  - [Additional Perspective](#additional-perspective)
-
-- [Section A, Question 1(e)](#section-a-question-1e)
-  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas)
-  - [Answer Explanation: Effectiveness of Tracking Daily Voter Numbers](#answer-explanation-effectiveness-of-tracking-daily-voter-numbers)
-  - [Answer Explanation: Monitoring Potential Side Effects](#answer-explanation-monitoring-potential-side-effects)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-3)
-  - [Summary](#summary-1)
-
-- [Section B, Question 2(a)](#section-b-question-2a)
-  - [Sub-Question (i): Reference Architecture and Essential Components](#sub-question-i-reference-architecture-and-essential-components)
-  - [Sub-Question (ii): Internal Communication Between Services](#sub-question-ii-internal-communication-between-services)
-  - [Sub-Question (iii): State Management for Stateful Services](#sub-question-iii-state-management-for-stateful-services)
-  - [Sub-Question (iv): Deployment Plan Using Kubernetes](#sub-question-iv-deployment-plan-using-kubernetes)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-4)
-
-- [Section B, Question 2(b)](#section-b-question-2b)
-  - [Question Breakdown and Focus Areas](#question-breakdown-and-focus-areas-1)
-  - [Answer Explanation: PWA vs. Native App](#answer-explanation-pwa-vs-native-app)
-  - [Answer Explanation: Impact on Back-End Service Design](#answer-explanation-impact-on-back-end-service-design)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-5)
-  - [Summary](#summary-2)
-
-- [Section C, Question 3(c)](#section-c-question-3c)
-  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas-2)
-  - [Answer Explanation: Identifying Undesirable Architectural Decisions](#answer-explanation-identifying-undesirable-architectural-decisions)
-  - [Answer Explanation: Proposing Corrective Actions](#answer-explanation-proposing-corrective-actions)
-  - [Justification and Trade-Off Analysis](#justification-and-trade-off-analysis)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-6)
-  - [Summary](#summary-3)
-
-- [Section C, Question 3(d)](#section-c-question-3d)
-  - [Question Breakdown and Key Focus Areas](#question-breakdown-and-key-focus-areas-3)
-  - [Answer Explanation: Sharding as a Scaling Strategy](#answer-explanation-sharding-as-a-scaling-strategy)
-  - [Answer Explanation: Software and Infrastructure Adjustments](#answer-explanation-software-and-infrastructure-adjustments)
-  - [Monitoring Potential Side Effects](#monitoring-potential-side-effects)
-  - [Key Takeaways for Approach](#key-takeaways-for-approach-7)
-  - [Summary](#summary-4)
-
-- [PWA 和 Native Client 的区别](#pwa-和-native-client-的区别)
-
 ---
 
 
-Section A, Question 1(a) 主要是考察考生在设计和评估系统性能测试和事件传递机制时的思路与分析能力。这道题从两个子问题切入，具体考点如下：
+# Section A, Question 1(a) 
+主要是考察考生在设计和评估系统性能测试和事件传递机制时的思路与分析能力。这道题从两个子问题切入，具体考点如下：
 
 1. 性能测试的设计与可靠性（Question 1(a)(i））
    问题重述：在“验证身份”用例的 API 请求-响应性能测试中，部分测试人员使用了不同的测试工具，但结果不稳定，且不能作为性能标准的代理。问题要求分析原因并提出改进测试的方法。
@@ -169,7 +106,8 @@ Each of these points emphasizes different aspects of reliability, efficiency, an
 
 ---
 
-Section A, Question 1(b) focuses on identifying design issues within a domain model and proposing improvements while considering potential trade-offs. The question assesses the candidate's understanding of domain-driven design, service boundaries, and modularity. Here’s a breakdown of why the answer provided is effective, along with key considerations.
+# Section A, Question 1(b) 
+focuses on identifying design issues within a domain model and proposing improvements while considering potential trade-offs. The question assesses the candidate's understanding of domain-driven design, service boundaries, and modularity. Here’s a breakdown of why the answer provided is effective, along with key considerations.
 
 ### 1. **Question Breakdown and Focus Areas**
 
@@ -253,7 +191,8 @@ Section A, Question 1(b) 主要考察考生识别领域模型中的设计问题�
 在此问题中，考生需要运用架构原则，如服务模块化、内聚性和延迟优化，并在提出解决方案时考虑可能的后果。这样的综合方法确保了答案在技术上是合理且实用的。
 ---
 
-Section A, Question 1(c) 主要考察考生对RESTful API设计的理解，特别是如何符合Richardson Maturity Model (RMM)的Level 2标准，并且考虑API的版本管理和请求方法的正确性。这道题目评估了考生在API设计中的一致性、版本管理策略、HTTP方法选择和接口优化方面的知识。以下是为什么答案有效，以及解题的思路和切入点分析。
+# Section A, Question 1(c) 
+主要考察考生对RESTful API设计的理解，特别是如何符合Richardson Maturity Model (RMM)的Level 2标准，并且考虑API的版本管理和请求方法的正确性。这道题目评估了考生在API设计中的一致性、版本管理策略、HTTP方法选择和接口优化方面的知识。以下是为什么答案有效，以及解题的思路和切入点分析。
 
 ### 1. **题目分解和考察点**
 
@@ -353,7 +292,8 @@ Section A, Question 1(c) primarily assesses a candidate’s understanding of RES
 In summary, the candidate needs to combine REST design principles with API management practices. This ensures the designed API is both user-friendly and maintainable, with good extensibility and minimal disruption for consumers.
 ---
 
-Section A, Question 1(d) is focused on identifying the most crucial non-functional requirements (NFRs) for the system, given its context as a high-volume e-voting platform. This question tests the candidate’s ability to prioritize NFRs based on the unique requirements and challenges of the platform, particularly under conditions of high concurrency and strict security needs. Here’s why the answer is effective and what the key focus points and approach should be.
+# Section A, Question 1(d) 
+is focused on identifying the most crucial non-functional requirements (NFRs) for the system, given its context as a high-volume e-voting platform. This question tests the candidate’s ability to prioritize NFRs based on the unique requirements and challenges of the platform, particularly under conditions of high concurrency and strict security needs. Here’s why the answer is effective and what the key focus points and approach should be.
 
 ### 1. **Question Breakdown and Focus Areas**
 
@@ -421,7 +361,8 @@ Section A, Question 1(d) 主要考察考生如何在特定系统背景下识别�
 
 ---
 
-Section A, Question 1(e) 主要考察考生对应用指标（application metrics）在系统可扩展性和可用性评估中的理解。这道题评估考生选择和评估系统性能指标的能力，特别是在高并发和高需求的环境中。下面是对答案有效性的解释，以及解题的考点和思路分析。
+# Section A, Question 1(e) 
+主要考察考生对应用指标（application metrics）在系统可扩展性和可用性评估中的理解。这道题评估考生选择和评估系统性能指标的能力，特别是在高并发和高需求的环境中。下面是对答案有效性的解释，以及解题的考点和思路分析。
 
 ### 1. **题目分解和考察点**
 
@@ -491,7 +432,8 @@ The answer is effective because it shows a deep understanding of selecting and i
 
 ---
 
-Section B, Question 2(a) is focused on transforming a monolithic architecture into a scalable, hybrid microservices-based architecture suitable for a high-concurrency voting platform. The four sub-questions within this part test the candidate’s ability to conceptualize a microservices architecture, understand cloud-native components, manage internal communication, design state management, and create a deployment plan. Here’s an analysis of why each answer is effective and the key focus points for approaching the question.
+# Section B, Question 2(a) 
+is focused on transforming a monolithic architecture into a scalable, hybrid microservices-based architecture suitable for a high-concurrency voting platform. The four sub-questions within this part test the candidate’s ability to conceptualize a microservices architecture, understand cloud-native components, manage internal communication, design state management, and create a deployment plan. Here’s an analysis of why each answer is effective and the key focus points for approaching the question.
 
 1. **Sub-Question (i): Reference Architecture and Essential Components**  
    **Question**: Propose a hybrid reference architecture for the voting platform, listing essential components and interactions in a cloud environment.
@@ -546,7 +488,8 @@ Each sub-question requires a solid understanding of cloud-native architecture pr
 
 ---
 
-Section B, Question 2(a) 主要考察考生将单体架构转变为适合高并发投票平台的可扩展混合微服务架构的能力。该题的四个小问分别评估考生在构建微服务架构、选择云原生组件、管理内部通信、设计状态管理和部署方案方面的理解。以下是对每个答案有效性的解释以及关键考点和解题思路。
+# Section B, Question 2(a) 
+主要考察考生将单体架构转变为适合高并发投票平台的可扩展混合微服务架构的能力。该题的四个小问分别评估考生在构建微服务架构、选择云原生组件、管理内部通信、设计状态管理和部署方案方面的理解。以下是对每个答案有效性的解释以及关键考点和解题思路。
 
 ### 1. **小问 (i): 参考架构和必要组件**
 
@@ -604,7 +547,8 @@ Section B, Question 2(a) 主要考察考生将单体架构转变为适合高并�
 
 ---
 
-Section B, Question 2(b) 主要考察考生在特定的系统需求和扩展场景下，如何选择前端架构和设计后端服务。该题评估考生在前端架构选择、存储需求、用户扩展性以及物联网（IoT）集成等方面的理解。以下是为什么答案有效的分析，以及考点和解题思路。
+# Section B, Question 2(b) 
+主要考察考生在特定的系统需求和扩展场景下，如何选择前端架构和设计后端服务。该题评估考生在前端架构选择、存储需求、用户扩展性以及物联网（IoT）集成等方面的理解。以下是为什么答案有效的分析，以及考点和解题思路。
 
 ### 1. **题目分解和考察点**
 
@@ -688,7 +632,8 @@ Section B, Question 2(b) focuses on how to choose the appropriate front-end arch
 
 ---
 
-Section C, Question 3(c) requires candidates to evaluate a logical packaging and deployment model, identify undesirable architectural decisions, and propose corrective actions with justification. This question tests the candidate's ability to critically analyze an existing architecture for potential issues, understand principles of domain-driven design (DDD) and system modularity, and make thoughtful recommendations for improvements. Here’s an analysis of why each part of the answer is effective, along with key focus points and approach.
+# Section C, Question 3(c) 
+requires candidates to evaluate a logical packaging and deployment model, identify undesirable architectural decisions, and propose corrective actions with justification. This question tests the candidate's ability to critically analyze an existing architecture for potential issues, understand principles of domain-driven design (DDD) and system modularity, and make thoughtful recommendations for improvements. Here’s an analysis of why each part of the answer is effective, along with key focus points and approach.
 
 ### 1. **Question Breakdown and Key Focus Areas**
 
@@ -800,7 +745,8 @@ Section C, Question 3(c) 要求考生评估逻辑打包和部署模型，识别�
 
 ---
 
-Section C, Question 3(d) focuses on addressing database write throughput limitations in a high-concurrency voting environment. Specifically, the question requires candidates to propose a comprehensive scaling plan to improve write throughput, along with identifying and monitoring potential side effects. This question tests the candidate’s understanding of database scalability strategies, architectural adjustments to support high-demand use cases, and the ability to anticipate and mitigate potential trade-offs. Here’s an analysis of why each part of the answer is effective, along with key focus points and approach.
+# Section C, Question 3(d) 
+focuses on addressing database write throughput limitations in a high-concurrency voting environment. Specifically, the question requires candidates to propose a comprehensive scaling plan to improve write throughput, along with identifying and monitoring potential side effects. This question tests the candidate’s understanding of database scalability strategies, architectural adjustments to support high-demand use cases, and the ability to anticipate and mitigate potential trade-offs. Here’s an analysis of why each part of the answer is effective, along with key focus points and approach.
 
 ### 1. **Question Breakdown and Key Focus Areas**
 
