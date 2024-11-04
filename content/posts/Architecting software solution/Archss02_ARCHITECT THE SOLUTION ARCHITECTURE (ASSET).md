@@ -182,7 +182,7 @@ Peer-to-peer (P2P) architecture is a decentralized network model where each part
     - Without a central authority, managing updates, security patches, and ensuring proper behavior across all peers can be more complicated.
 ### Discussion 1:
 
-{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion1.png" caption="<span class=\"figure-number\">Figure 1: </span>Dissction 1" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion1.png" caption="<span class=\"figure-number\">Figure 1: </span>Dissction 1" width="1000px" >}}
 
 Option 2 is better:
 
@@ -256,7 +256,7 @@ A simple interaction where one component invokes another and waits for a respons
 - Publish/Subscribe Model: The producer publishes events, and multiple subscribers consume them based on their interest (slides 32-33).
 #### Discussion2:
 
-{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion2.png" caption="<span class=\"figure-number\">Figure 2: </span>Dissction 2" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion2.png" caption="<span class=\"figure-number\">Figure 2: </span>Dissction 2" width="1000px" >}}
 1.	Required Quality Attributes:
 	- Usability: The system should be easy for the general public and tourists to access and understand, especially with extensive visual graphics and illustrations.
 	- Performance: The system must deliver data quickly and efficiently, especially if real-time haze data is involved, ensuring timely information access.
@@ -293,7 +293,7 @@ SOA（Service-Oriented Architecture）是一种面向服务的软件架构风格
 
 - Cloud and Serverless Architectures: Explore cloud models (IaaS, PaaS, SaaS) and serverless computing, focusing on how services are provided without dedicated servers (slides 61-67).
 ### Discussion 3:
-{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion3.png" caption="<span class=\"figure-number\">Figure 3: </span>Dissction 3" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/swe5001_1_02_Discussion3.png" caption="<span class=\"figure-number\">Figure 3: </span>Dissction 3" width="1000px" >}}
 
 1. Mobile Architecture: Key Decision Drivers for Mobile Application Development
 

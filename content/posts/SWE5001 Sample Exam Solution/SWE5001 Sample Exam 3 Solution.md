@@ -1,7 +1,7 @@
 +++
 title = "SWE5001 Sample Exam 3 Solution"
 author = ["Bruce"]
-date = 2024-11-02
+date = 2024-11-04
 series = ["SWE5001 Sample Exam Solution"]
 tags = ["Platform Engineering", "Architecting software solution", "Cloud Native Solution", "SWE5001"]
 draft = false

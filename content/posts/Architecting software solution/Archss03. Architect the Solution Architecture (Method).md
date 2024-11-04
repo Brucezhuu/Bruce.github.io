@@ -20,28 +20,28 @@ draft = false
 	8.	Review Requirements with Stakeholders.
 
 Example of detaile functional requirements using use case:
-{{< figure src="/img/in-post/Architecting software solution/reserve slot use case1.png" caption="<span class=\"figure-number\">Figure 1: </span>reserve slot use case 1" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/reserve slot use case1.png" caption="<span class=\"figure-number\">Figure 1: </span>reserve slot use case 1" width="1000px" >}}
 
-{{< figure src="/img/in-post/Architecting software solution/reserve slot use case2.png" caption="<span class=\"figure-number\">Figure 2: </span>reserve slot use case 2" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/reserve slot use case2.png" caption="<span class=\"figure-number\">Figure 2: </span>reserve slot use case 2" width="1000px" >}}
 
 Example of detaile non-functional requirements:
 
-{{< figure src="/img/in-post/Architecting software solution/Availability Requirement.png" caption="<span class=\"figure-number\">Figure 3: </span>Availability Requirement" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/Availability Requirement.png" caption="<span class=\"figure-number\">Figure 3: </span>Availability Requirement" width="1000px" >}}
 ## 2. Logical Architecture
 ### Logical Architecture activities (Task summary)
 - 1. Survey Architecture Assets
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task1.png" caption="<span class=\"figure-number\">Figure 4: </span>Logical-Architect-task1" width="500px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task1.png" caption="<span class=\"figure-number\">Figure 4: </span>Logical-Architect-task1" width="1000px" >}}
 - 2. Define Architecture Overview
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task2.1.png" caption="<span class=\"figure-number\">Figure 5: </span>Logical-Architect-task2.1" width="500px" >}}
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task2.2.png" caption="<span class=\"figure-number\">Figure 6: </span>Logical-Architect-task2.2" width="500px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task2.1.png" caption="<span class=\"figure-number\">Figure 5: </span>Logical-Architect-task2.1" width="1000px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task2.2.png" caption="<span class=\"figure-number\">Figure 6: </span>Logical-Architect-task2.2" width="1000px" >}}
 - 3. Outline Functional Elements
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task3.1.png" caption="<span class=\"figure-number\">Figure 7: </span>Logical-Architect-task3.1" width="500px" >}}
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task3.2.png" caption="<span class=\"figure-number\">Figure 8: </span>Logical-Architect-task3.2" width="500px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task3.1.png" caption="<span class=\"figure-number\">Figure 7: </span>Logical-Architect-task3.1" width="1000px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task3.2.png" caption="<span class=\"figure-number\">Figure 8: </span>Logical-Architect-task3.2" width="1000px" >}}
 - 4. Outline Deployment Elements
 - 5. Verify Architecture
 - 6. Detail Functional Elements
 - 7. Detail Deployment Elements
-	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task7.png" caption="<span class=\"figure-number\">Figure 9: </span>Logical-Architect-task7" width="500px" >}}
+	{{< figure src="/img/in-post/Architecting software solution/Logical-Architect-task7.png" caption="<span class=\"figure-number\">Figure 9: </span>Logical-Architect-task7" width="1000px" >}}
 - 8. Validate Architecture
 - 9. Update Solution Architecture Document
 - 10. ReviewArchitecturewith Stakeholders
@@ -62,9 +62,9 @@ Example of detaile non-functional requirements:
 
 ## 4. Architect SHS Workshop (4 Exercise)
 ### Exercise 1:
-{{< figure src="/img/in-post/Architecting software solution/03_exercise1.png" caption="<span class=\"figure-number\">Figure 4: </span>03_exercise 1" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/03_exercise1.png" caption="<span class=\"figure-number\">Figure 4: </span>03_exercise 1" width="1000px" >}}
 
-{{< figure src="/img/in-post/Architecting software solution/03-exercise1-briefing.png" caption="<span class=\"figure-number\">Figure 5: </span>03_exercise-1" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/03-exercise1-briefing.png" caption="<span class=\"figure-number\">Figure 5: </span>03_exercise-1" width="1000px" >}}
 - Step 1: Outline the Functional Requirements and Create the System Context
 	- Functional Requirements:
 
@@ -161,7 +161,7 @@ Availability (Degraded Mode for Offline Operation):
 	- Response: The system enters a degraded mode, allowing data entry for essential functions (e.g., screenings) without network connectivity. Data syncs with the mainframe once the network is restored.
 	- Response Measure: Data entry must continue for up to 5 hours offline, with data seamlessly synced post-restoration.
 ### Exercise 2:
-{{< figure src="/img/in-post/Architecting software solution/03-exercise2.png" caption="<span class=\"figure-number\">Figure 6: </span>03_exercise-2" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/03-exercise2.png" caption="<span class=\"figure-number\">Figure 6: </span>03_exercise-2" width="1000px" >}}
 
 #### Architectural Decisions
 Decision ID: 1
@@ -188,9 +188,9 @@ TE only: Effective for real-time interactions but inefficient for transferring l
 - Justification: Combining FTP and TE optimizes both bulk data exchanges and real-time transactions, leveraging each protocol's strengths and avoiding the limitations of using only one.
 
 
-{{< figure src="/img/in-post/Architecting software solution/03-exercise3.png" caption="<span class=\"figure-number\">Figure 7: </span>03_exercise-3" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/03-exercise3.png" caption="<span class=\"figure-number\">Figure 7: </span>03_exercise-3" width="1000px" >}}
 
-{{< figure src="/img/in-post/Architecting software solution/03-exercise4.png" caption="<span class=\"figure-number\">Figure 8: </span>03_exercise-4" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/03-exercise4.png" caption="<span class=\"figure-number\">Figure 8: </span>03_exercise-4" width="1000px" >}}
 
 ### summary：
 关于本章节，重点是 Logical Architecture 和 Physical Architecture 的部分， physical Architecture的部分要与Logical Architecture的部分相对应。
@@ -224,4 +224,4 @@ TE only: Effective for real-time interactions but inefficient for transferring l
 - Physical architecure: detailed deployment element (use case specific): 标明`deploy`和`manifest`箭头，由此指明每个detailed Physical element 部署或依赖在哪个`server`或`Engine`上
 
 最后画 integration EndPoint图
-{{< figure src="/img/in-post/Architecting software solution/Pysical-IntegrationEndpoint.png" caption="<span class=\"figure-number\">Figure 9: </span>Pysical-IntegrationEndpoint" width="500px" >}}
+{{< figure src="/img/in-post/Architecting software solution/Pysical-IntegrationEndpoint.png" caption="<span class=\"figure-number\">Figure 9: </span>Pysical-IntegrationEndpoint" width="1000px" >}}
